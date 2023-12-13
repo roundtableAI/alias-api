@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>JS Chunk Example</title>
+</head>
+
+<body>
+    <h1>JS Chunk Example</h1>
+    <form>
+        <label for="exampleTextarea">Tell me about yourself</label>
+        <br>
+        <textarea id="exampleTextarea" name="exampleTextarea" rows="4" cols="50"></textarea>
+        <br>
+        <input type="submit" id="submitBtn" value="Submit" />
+    </form>
+    <div id='result'></div>
+</body>
+<script>
+
+    // Id of the textbox
+    const textbox_id = 'exampleTextarea';
+    
+    // Max number of characters to store in history 
+    const max_characters_for_history = 25000;
+
+
+    let old_text = document.getElementById(textbox_id).value;
+    let question_history = [];
+    let text_over_length = false;
+    let start_time;
+
+    // Handle input changes
+    document.getElementById(textbox_id).addEventListener('input', function (e) {
+        if (!start_time) {
+            start_time = Date.now();
+            t = 0;
+        } else {
+            t = Date.now() - start_time;
+        }
+        if (text_over_length) {
+            return;
+        }
+        const state = e.target.value;
+        const new_history = {
+            s: state,
+            t,
+        };
+        const length_of_history = JSON.stringify([...question_history, new_history]).length;
+        if (length_of_history > max_characters_for_history) {
+            text_over_length = true;
+            return;
+        }
+        question_history.push(new_history);
+        old_text = state;
+    });
+
+    // Handle copy changes
+    document.getElementById(textbox_id).addEventListener('copy', function (e) {
+        if (!start_time) {
+            start_time = Date.now();
+            t = 0;
+        } else {
+            t = Date.now() - start_time;
+        }
+        if (text_over_length) return;
+        const new_history = {
+            s: e.target.value,
+            t,
+            o: 'c',
+            ct: window.getSelection().toString(),
+        };
+        const length_of_history = JSON.stringify([...question_history, new_history]).length;
+        if (length_of_history > max_characters_for_history) {
+            text_over_length = true;
+            return;
+        }
+        question_history.push(new_history);
+    });
+
+    // Add click event listener to the submit button
+    document.getElementById('submitBtn').addEventListener('click', function (e) {
+        e.preventDefault();
+        // Log the question history
+        console.log(question_history);
+        // Copy to clipboard
+        navigator.clipboard.writeText(JSON.stringify(question_history));
+    });
+
+
+</script>
+
+</html>
