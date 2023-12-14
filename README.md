@@ -1,9 +1,8 @@
 # Roundtable Alias API
 
-[Schedule a demo](https://0hisg1rtgv7.typeform.com/to/a9QAV4MW)
-
 This repository contains details on using the [Roundtable](https://roundtable.ai) Alias API for survey bot and fraud detection.
 
+If you're interested in seeing the Alias API in action or have questions about integration, feel free to [schedule a demo](https://0hisg1rtgv7.typeform.com/to/a9QAV4MW) and our team can walk you through the features and help with setup.
 
 ## Setup
 
