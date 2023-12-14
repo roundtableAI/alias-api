@@ -46,7 +46,6 @@ To call our API, pass the request parameters in a serialized JSON array to our e
 
 ```python
 import requests
-import json
 
 url = 'https://roundtable.ai/.netlify/functions/alias-v01'
 
