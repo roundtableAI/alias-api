@@ -27,7 +27,7 @@ def run_fetch(questions, question_histories, responses, survey_id, participant_i
 if __name__ == "__main__":
     questions = {
         'q-1': "Tell me about yourself",
-        'q-2': 'How do you choose which shampoo to buy?',
+        'q-2': "How do you choose which shampoo to buy"
     }
     question_histories = {
         'q-1': [{"s":"M","t":0},{"s":"My","t":196},{"s":"My ","t":328},{"s":"My n","t":494},{"s":"My na","t":589},{"s":"My nam","t":665},{"s":"My name","t":781},{"s":"My name ","t":833},{"s":"My name i","t":935},{"s":"My name is","t":1005},{"s":"My name is ","t":1053},{"s":"My name is M","t":1238},{"s":"My name is Ma","t":1343},{"s":"My name is Mat","t":1454},{"s":"My name is Matt","t":1594},{"s":"My name is Matt ","t":1658},{"s":"My name is Matt a","t":1738},{"s":"My name is Matt an","t":1802},{"s":"My name is Matt and","t":1890},{"s":"My name is Matt and ","t":1954},{"s":"My name is Matt and I","t":2111},{"s":"My name is Matt and I ","t":2236},{"s":"My name is Matt and I l","t":3256},{"s":"My name is Matt and I lo","t":4149},{"s":"My name is Matt and I l","t":4815},{"s":"My name is Matt and I li","t":5039},{"s":"My name is Matt and I lik","t":5216},{"s":"My name is Matt and I like","t":5291},{"s":"My name is Matt and I like ","t":5382},{"s":"My name is Matt and I like t","t":5479},{"s":"My name is Matt and I like to","t":5533},{"s":"My name is Matt and I like to ","t":5670},{"s":"My name is Matt and I like to c","t":6180},{"s":"My name is Matt and I like to co","t":6311},{"s":"My name is Matt and I like to cod","t":6415},{"s":"My name is Matt and I like to code","t":6500}],
@@ -38,9 +38,9 @@ if __name__ == "__main__":
         'q-2': "I generally just buy whatever's cheapest...",
     }
 
-    survey_id = 'shampoo_survey_v4'
+    survey_id = 'shampoo_survey_v6'
 
-    participant_id = 'p_1'
+    participant_id = 'p_2'
 
     API_KEY = os.getenv("ROUNDTABLE_API_KEY")
 
