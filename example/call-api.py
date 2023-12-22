@@ -10,11 +10,22 @@ def run_fetch(questions, question_histories, responses, survey_id, participant_i
         'question_histories': question_histories,
         'responses': responses,
         'survey_id': survey_id,
-        'api_key': API_KEY,
         'participant_id': participant_id,
     }
+
+    # Headers to be sent in the request
+    headers = {
+        "Content-Type": "application/json",
+        "api_key": API_KEY
+    }
+
     # Make request
-    response = requests.post('https://roundtable.ai/.netlify/functions/alias-v01', json=body)
+    response = requests.post(
+        'https://roundtable.ai/.netlify/functions/alias-v011',
+        json=body,
+        headers=headers
+    )
+
     # Check response
     if response.status_code == 200:
         return response.json()
