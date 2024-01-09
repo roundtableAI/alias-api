@@ -14,7 +14,7 @@ def run_fetch(questions, question_histories, responses, survey_id, participant_i
         'participant_id': participant_id,
     }
     # Make request
-    response = requests.post('https://roundtable.ai/.netlify/functions/alias-v01', json=body)
+    response = requests.post('https://roundtable.ai/api/alias/v01', json=body)
     # Check response
     if response.status_code == 200:
         return response.json()

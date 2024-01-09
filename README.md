@@ -16,11 +16,11 @@ Follow these steps to use the Alias API:
 1. **Set up Javascript Tracker (optional):** Our [Javascript tracker](tracking-script.js) generates a history of every change made for each open-ended textbox. To use this tracker, replace the value of the `textbox_id` variable at the top of the script with the HTML id of the relevant textbox and then store the generated `question_history`. You can also specify the max number of characters the parsed `question_history` should take before it stops tracking (by default, this is set to 25,000). Note that as is, the script only works if there is one textbox per page. **Also note that the script will need to be modified if participants can go "back" to edit their question.**
 2. **Generate an API key:** Sign up at [https://roundtable.ai/sign-up](https://roundtable.ai/sign-up), and then navigate to your [account](https://roundtable.ai/account). Here you can generate API keys as needed.
 3. **Collect data and format:** Run your survey, storing the `question_history` for each participant and each open-ended question they complete, and structure the data to make API calls as described below. Note that our API *only* takes data from open-ended questions.
-4. **Call the API** Call the API using our endpoint at `https://roundtable.ai/.netlify/functions/alias-v01`. **Note: We reccomend waiting at least 5 seconds between each API call as we work to scale**.
+4. **Call the API** Call the API using our endpoint at `https://roundtable.ai/api/alias/v01`. **Note: We reccomend waiting at least 5 seconds between each API call as we work to scale**.
 
 ## API Endpoints
 
-### `POST /alias-v01`
+### `POST /api/alias/v01`
 
 This endpoint analyzes survey responses to detect fraudulent activity. The API only takes data from one participant---you must make a separate API call for each participant. After a successful API call is made, the data from that call is stored in our database as a response. This allows us to detect duplicate responses if two calls are made with identical responses but different values for `participant_id`.
 
@@ -47,7 +47,7 @@ To call our API, pass the request parameters in a serialized JSON array to our e
 ```python
 import requests
 
-url = 'https://roundtable.ai/.netlify/functions/alias-v01'
+url = 'https://roundtable.ai/api/alias/v01'
 
 # Data to be sent in the request
 data = {
