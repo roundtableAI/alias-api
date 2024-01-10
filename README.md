@@ -54,7 +54,7 @@ Include all body parameters in the JSON payload of the request body.
 - `flagged` (Boolean): Indicates if any fraudulent activity was detected. If true, we reccomend reviewing the participant's responses.
 - `num_checks_failed` (Integer): Number of checks that failed.
 - `checks` (Object): Details of specific checks and their outcomes.
-- `warning` (String): A message that provides additional context or information about potential issues detected during the request processing. Only returned when there is a message.
+- `warning` (String): A message that provides additional context or information about potential issues detected during the request processing. Only returned when if there is a warning.
 - `problem` (String): A message that explains why `error` is `True`. Only returned if there is an error.
 
 ### Example Usage
