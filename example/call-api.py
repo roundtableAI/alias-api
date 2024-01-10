@@ -11,7 +11,6 @@ def run_fetch(questions, question_histories, responses, survey_id, participant_i
         'responses': responses,
         'survey_id': survey_id,
         'participant_id': participant_id,
-        
     }
 
     # Headers to be sent in the request
